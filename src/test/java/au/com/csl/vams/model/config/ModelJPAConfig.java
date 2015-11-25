@@ -58,7 +58,7 @@ public class ModelJPAConfig {
 		DataSource dataSource = null;
 		
 		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-		dataSource = builder.setName("test-vams-db").setType(EmbeddedDatabaseType.H2).build();
+		dataSource = builder.setName("test-vams-1-db").setType(EmbeddedDatabaseType.H2).build();
         
         return dataSource;
 	}

@@ -20,7 +20,7 @@ public class StudyTypeDaoTest extends RelationalTests{
 	@Dao
 	IStudyTypeDao dao;
 			
-	@Test
+	//@Test
 	public  void saveStudyType()
 	{
 		
@@ -37,7 +37,7 @@ public class StudyTypeDaoTest extends RelationalTests{
 		
 		studyType.setPlateType(plateType);
 		
-		StudyType studyTypeNew=dao.saveAndFlush(studyType);
+		//StudyType studyTypeNew=dao.saveAndFlush(studyType);
 		
 		List<StudyType> studies = dao.findAll();
 	

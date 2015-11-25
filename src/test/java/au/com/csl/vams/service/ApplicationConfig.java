@@ -33,11 +33,11 @@ public class ApplicationConfig {
 		</property>
 		 */
 		vamsDb.setType("javax.sql.DataSource");
-		vamsDb.setId("jdbc/vams-db");
+		vamsDb.setId("jdbc/vams-1-db");
 		
 		Properties properties = new Properties();
 		properties.put("JdbcDriver", "org.h2.Driver");
-		properties.put("JdbcUrl", "jdbc:h2:mem:vams-db");
+		properties.put("JdbcUrl", "jdbc:h2:mem:vams-1-db");
 		vamsDb.setProperties(properties);
 		
 		return vamsDb;

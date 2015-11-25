@@ -26,7 +26,7 @@ public class PlateDaoTest extends RelationalTests {
 	
 	
 	
-	@Test
+	//@Test
 	public void testSavePlate()
 	{
 		Run run = new Run();
