@@ -28,7 +28,7 @@ public class RunDaoTest extends RelationalTests{
 	IStudyDao studyDao;
 	
 	
-	@Test
+	//@Test
 	public void saveTest()
 	{
 		Run run = new Run();

@@ -6,7 +6,7 @@
 /* FONT-FACE*/
 
 @font-face {
-    font-family: 'dosismedium';
+    font-family: 'dosismedium';ronin-layout
     src: url("#{resource['primefaces-ronin:fonts/dosis-medium-webfont.eot']}");
     src: url("#{resource['primefaces-ronin:fonts/dosis-medium-webfont.eot']}#iefix") format('embedded-opentype'),
          url("#{resource['primefaces-ronin:fonts/dosis-medium-webfont.woff2']}") format('woff2'),
@@ -348,3 +348,6 @@ li{list-style:none;}
 .ShadowBox:after{
     clear: both; 
 }
+
+
+

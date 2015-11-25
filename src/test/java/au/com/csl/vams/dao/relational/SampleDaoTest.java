@@ -20,7 +20,7 @@ public class SampleDaoTest extends RelationalTests {
 	@Dao
 	ISampleDao dao;
 	
-	@Test
+	//@Test
 	public void Test(){
 		/*Sample sample = new Sample();
 		sample.setSampleName("bloodSample1");

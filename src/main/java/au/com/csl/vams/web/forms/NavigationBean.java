@@ -42,4 +42,5 @@ public class NavigationBean {
 	public void setSessionModel(SessionModel sessionModel) {
 		this.sessionModel = sessionModel;
 	}
+	
 }
