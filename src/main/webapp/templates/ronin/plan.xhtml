@@ -16,7 +16,7 @@
         <ui:insert name="head" />
     </h:head>
 
-    <h:body styleClass="loginbody">
+    <h:body styleClass="planbody">
         <h:form id="form">
         	<div class="Container100">
 	
@@ -29,17 +29,17 @@
 	</h2>
 	
 	<h:outputText  value="Participant Id: " />
-    <h:outputText  value="#{planForm.sessionModel.model.participantId}" />
+    <h:outputText  value="#{planForm.myPlan.participantId}" />
     <div class="EmptyBox10"></div>
 	<p:outputLabel value="Valid Till: "></p:outputLabel>
-	<h:outputText value="#{planForm.sessionModel.model.validUntil}" class="FontBold">
+	<h:outputText value="#{planForm.myPlan.validUntil}" class="FontBold">
 	<f:convertDateTime pattern="dd-MMM-yy"></f:convertDateTime>
 	</h:outputText>
 	
 	<div class="EmptyBox10"></div>
 		
 	
-        <p:accordionPanel style="margin-top:20px" value="#{planForm.sessionModel.model.clusters}" var="cluster">
+        <p:accordionPanel style="margin-top:20px" value="#{planForm.myPlan.clusters}" var="cluster">
         <p:tab>
           <f:facet name="title">
           	<div class="Container100">
@@ -54,40 +54,59 @@
 	         </div>
 	         <div class="EmptyBox5"/>
 	       	 </f:facet>
-	   		
-	   		<p:dataScroller value="#{cluster.supportItems}" var="item" chunkSize="10">
-						<h:panelGrid columns="2"  style="width:100%">
-							<p:outputPanel>								
-								<h:panelGrid columns="2" cellpadding="5" layout="grid" styleClass="ui-panelgrid-blank">
-									<h:outputText value="Support Item" />
-									<h:outputText value="#{item.name}" style="font-weight: bold" />
 
-									<h:outputText value="Ref No" />
-									<h:outputText value="#{item.referenceNo}" />
+				<p:dataScroller value="#{cluster.supportItems}" var="item"
+					chunkSize="10">
+					<h:panelGrid columns="2" width="100%">
 
-									<h:outputText value="Description" />
-									<h:outputText value="#{item.description}" style="word-wrap:break-word;"/>
+						<h:panelGroup>
+							<h:panelGrid columns="2" cellpadding="5"
+								columnClasses="label,value" width="400">
 
-								</h:panelGrid>
-							</p:outputPanel>
-							
-							<p:outputPanel>								
-								<h:panelGrid columns="2" cellpadding="5" layout="grid" styleClass="ui-panelgrid-blank" >
-									
+								<h:outputText value="Support Item"
+									style="display: block; width: 100px;" />
+								<h:outputText value="#{item.name}"
+									style="font-weight: bold;word-wrap:break-word;" />
 
-									<h:outputText value="Quote Required" />
-									<h:outputText value="#{item.quoteRequired == true ? 'yes' : 'no'}"  style="font-weight: bold" />
-									
-									<!-- <h:outputText value="Price" /> -->
-									<h:outputText value="#{item.price}" class="Fs21" style="font-weight: bold" >
-										<f:convertNumber type="currency" currencySymbol="$" />
-									</h:outputText>
-								</h:panelGrid>
-							</p:outputPanel>
-						</h:panelGrid>
-					</p:dataScroller>
-       
-        </p:tab>
+								<h:outputText value="Ref No" />
+								<h:outputText value="#{item.referenceNo}" />
+
+								<h:outputText value="Description" />
+								<h:outputText value="#{item.description}"
+									style="display: block; width: 300px;" />
+
+
+
+
+							</h:panelGrid>
+						</h:panelGroup>
+
+
+
+						<h:panelGroup>
+							<h:panelGrid columns="2" cellpadding="5"
+								columnClasses="label,value" width="240">
+
+								<h:outputText value="Quote Required" />
+								<h:outputText
+									value="#{item.quoteRequired == true ? 'yes' : 'no'}"
+									style="font-weight: bold" />
+
+								<h:outputText value="Price" />
+								<h:outputText value="#{item.price}" class="Fs21"
+									style="font-weight: bold">
+									<f:convertNumber type="currency" currencySymbol="$" />
+								</h:outputText>
+
+
+							</h:panelGrid>
+						</h:panelGroup>
+
+					</h:panelGrid>
+				</p:dataScroller>
+
+
+			</p:tab>
        </p:accordionPanel>
         
         <div class="EmptyBox10"></div>
@@ -95,7 +114,7 @@
 			Approval Details
 		</h2>    			
        	
-		<p:dataScroller value="#{planForm.sessionModel.model.approvals}" var="approval">
+		<p:dataScroller value="#{planForm.myPlan.approvals}" var="approval">
 		<h:panelGrid columns="2" cellpadding="5" >
 			 <p:outputPanel>
                 <h:panelGrid columns="2" cellpadding="5">
