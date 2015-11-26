@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>au.com.ibm</groupId>
-    <artifactId>NDISPlanUI</artifactId>
+    <artifactId>vams-1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>NDISPlanUI-1</name>
+    <name>vams-1</name>
 
 	<properties>
 		<browser>phantomjs</browser>
