@@ -12,7 +12,9 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
             <meta name="apple-mobile-web-app-capable" content="yes" />
         </f:facet>
-        <title>PrimeFaces Ronin</title>
+        <title>Plan Management</title> 
+        <h:outputScript name="js/layout.js" library="ronin-layout" />
+
         <ui:insert name="head" />
     </h:head>
 
@@ -21,14 +23,14 @@
         	<div class="Container100">
 	
 	 <div class="Container100" align="right">
-		<a href="https://bookstore.local:9002/bookstorestorefront/bookstore/en" ><i class="fa fa-backward"></i></a>
+		<a href="https://bookstore.local:9002/bookstorestorefront/bookstore/en" ><i class="fa fa-chevron-left" style="color:black"></i><h:outputText value=" Back"  style="font-weight:bold;color:black"/></a>
 	</div>
     
     <h2 class="BigTopic" style="padding-bottom: 0px">
 			Current Plan
 	</h2>
 	
-	<h:outputText  value="Participant Id: " />
+	<p:outputLabel  value="Participant Id: " />
     <h:outputText  value="#{planForm.myPlan.participantId}" />
     <div class="EmptyBox10"></div>
 	<p:outputLabel value="Valid Till: "></p:outputLabel>
@@ -54,58 +56,65 @@
 	         </div>
 	         <div class="EmptyBox5"/>
 	       	 </f:facet>
-
 				<p:dataScroller value="#{cluster.supportItems}" var="item"
 					chunkSize="10">
-					<h:panelGrid columns="2" width="100%">
-
-						<h:panelGroup>
-							<h:panelGrid columns="2" cellpadding="5"
-								columnClasses="label,value" width="400">
-
+					<p:panelGrid>
+						<div class="Container40" style="color:Black!important; margin-right: 40px;">
+							<div class="Container30">
 								<h:outputText value="Support Item"
-									style="display: block; width: 100px;" />
+									style="display: block;" />
+							</div>
+							<div class="Container70">
 								<h:outputText value="#{item.name}"
 									style="font-weight: bold;word-wrap:break-word;" />
-
+							</div>
+							<div class="Container30">
 								<h:outputText value="Ref No" />
+							</div>
+							<div class="Container70">
 								<h:outputText value="#{item.referenceNo}" />
-
+							</div>
+							<div class="Container30">
 								<h:outputText value="Description" />
+							</div>
+							<div class="Container70">
 								<h:outputText value="#{item.description}"
-									style="display: block; width: 300px;" />
-
-
-
-
-							</h:panelGrid>
-						</h:panelGroup>
-
-
-
-						<h:panelGroup>
-							<h:panelGrid columns="2" cellpadding="5"
-								columnClasses="label,value" width="240">
-
-								<h:outputText value="Quote Required" />
+									style="display: block;" />
+							</div>
+						</div>
+						<div class="EmptyBox5"/>
+						</p:panelGrid>
+						<p:panelGrid>
+						<div class="Container40" style="color:Black!important;">
+							<div class="Container30">
+								<h:outputText value="Quote" />
+								</div>
+								<div class="Container70">
 								<h:outputText
-									value="#{item.quoteRequired == true ? 'yes' : 'no'}"
-									style="font-weight: bold" />
+									value="#{item.quoteRequired == true ? 'Quote Required' : 'Quote Not required'}"
+									style="font-weight: bold; color:Green;" rendered="#{! item.quoteRequired}"/>
+									<h:outputText
+									value="#{item.quoteRequired == true ? 'Quote Required' : 'Quote Not required'}"
+									style="font-weight: bold; color:Red;" rendered="#{item.quoteRequired}" />
+									</div>
+									<div class="Container30">
 
 								<h:outputText value="Price" />
+								</div>
+								<div class="Container70">
 								<h:outputText value="#{item.price}" class="Fs21"
 									style="font-weight: bold">
 									<f:convertNumber type="currency" currencySymbol="$" />
 								</h:outputText>
+								</div>
 
 
-							</h:panelGrid>
-						</h:panelGroup>
+							</div>
+							<div class="EmptyBox5"/>
 
-					</h:panelGrid>
+					</p:panelGrid>
+					<div class="EmptyBox5"/>
 				</p:dataScroller>
-
-
 			</p:tab>
        </p:accordionPanel>
         
@@ -115,13 +124,13 @@
 		</h2>    			
        	
 		<p:dataScroller value="#{planForm.myPlan.approvals}" var="approval">
-		<h:panelGrid columns="2" cellpadding="5" >
+		<h:panelGrid columns="2" cellpadding="5" border="0" >
 			 <p:outputPanel>
                 <h:panelGrid columns="2" cellpadding="5">
-	                    <h:outputText value="Approved By" />
+	                    <h:outputText value="Approved By:" />
 	                    <h:outputText value="#{approval.approvedBy}" style="font-weight: bold"/>
 	 
-	                    <h:outputText value="Approval Date" />
+	                    <h:outputText value="Approval Date:" />
 	                    <h:outputText value="#{approval.approvedDate}" style="font-weight: bold">
 	                    	<f:convertDateTime pattern="dd-MMM-yy"></f:convertDateTime>
 	                    </h:outputText>
@@ -132,6 +141,15 @@
 	
 	</div>
         </h:form>
+        
+        
+        <h:outputStylesheet name="css/core-layout.css" library="ronin-layout" />
+        <h:outputStylesheet name="css/font-awesome.css" library="ronin-layout" />
+        <h:outputStylesheet name="css/animate.css" library="ronin-layout" />
+        <h:outputStylesheet name="css/ronin-font.css" library="ronin-layout" />
+        <h:outputStylesheet name="css/ronin-layout.css" library="ronin-layout" />
+        <h:outputStylesheet name="css/customui.css" library="custom" />
+        
     </h:body>
 
 </html>
